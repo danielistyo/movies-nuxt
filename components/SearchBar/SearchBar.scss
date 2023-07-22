@@ -1,0 +1,53 @@
+.searchbar {
+  flex-basis: 40%;
+  position: relative;
+
+  &__input {
+    background-color: #24282f;
+    border: none;
+    width: calc(100% - 35px);
+    height: 25px;
+    padding: 0px 0px 0px 35px;
+    outline: none;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 4px;
+  }
+  &__prefix {
+    position: absolute;
+    top: 13px;
+    left: 11px;
+    color: #494d52;
+  }
+  &__suffix {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+  }
+
+  &__suggestions {
+    z-index: 2;
+    position: absolute;
+    background-color: #181818;
+    left: 0;
+    right: 0;
+    padding: 10px 14px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 14px;
+  }
+
+  &__suggestion {
+    padding: 5px 2px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #fff;
+    &:hover {
+      background-color: #414141;
+    }
+  }
+}
