@@ -1,0 +1,82 @@
+.home {
+  &__wrapper {
+    padding-top: 25px;
+    background: linear-gradient(
+      180deg,
+      rgba(41, 46, 48, 1) 0%,
+      rgba(41, 46, 54, 1) 233px,
+      rgba(255, 255, 255, 0) 233px,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+$dm: '.discover-movies';
+#{$dm} {
+  max-width: 820px;
+  margin: auto;
+  color: #fff;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > #{$dm}__item {
+      margin: 8px 8px 10px;
+      text-decoration: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 8px;
+  }
+
+  &__title {
+    font-size: 16px;
+    padding-top: 5px;
+    &::before {
+      background-image: linear-gradient(
+        90deg,
+        rgba(231, 76, 60, 1) 0%,
+        rgba(231, 76, 60, 1) 55%,
+        transparent 55%,
+        transparent 100%
+      );
+      display: block;
+      content: '';
+      height: 2px;
+      width: 100%;
+      margin-bottom: 3px;
+      margin-left: 1px;
+    }
+  }
+
+  &__order > button {
+    background-color: #21242b;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #171a20;
+    }
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    &.selected {
+      background-color: #fa0a00;
+      &:hover {
+        background-color: #bc0600;
+      }
+    }
+  }
+}
