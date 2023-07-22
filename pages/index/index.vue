@@ -37,7 +37,7 @@ export default defineComponent({
     const discoveredMovies = reactive<Movie[]>([])
     const discoveredMoviesSort = ref<SortBy>('popularity.desc')
     const fetchDiscoveredMovies = async () => {
-      const res = await api.discoverMovie(discoveredMoviesSort.value)
+      const res = await api.discoverMovie({ sort_by: discoveredMoviesSort.value })
       discoveredMovies.splice(0, discoveredMovies.length, ...res.results.slice(0, 10))
     }
 

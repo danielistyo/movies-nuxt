@@ -4,7 +4,7 @@
       <nuxt-link class="layout-header__title" to="/">MovieTime</nuxt-link>
       <search-bar class="layout-header__search"/>
       <movie-category class="layout-header__menu" />
-      <div class="layout-header__menu">MOVIES</div>
+      <nuxt-link class="layout-header__menu" to="/movies">MOVIES</nuxt-link>
       <div class="layout-header__menu">TV SHOWS</div>
       <div class="layout-header__menu">LOGIN</div>
     </div>

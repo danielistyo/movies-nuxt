@@ -36,16 +36,17 @@ export type SortBy =
   | 'vote_average.asc'
   | 'vote_average.desc';
 type Apis = {
-  discoverMovie: (sort_by: SortBy, with_genres?: string) => Promise<DiscoverMovieResult>;
+  discoverMovie: (params: { sort_by?: SortBy; with_genres?: string; page?: number }) => Promise<DiscoverMovieResult>;
   getNowPlayingMovies: () => Promise<NowPlayingMovieResult>;
   searchMovies: (keyword: string) => Promise<SearchMovieResult>;
 };
 
 const apis = {
-  discoverMovie(sort_by = 'popularity.desc', with_genres) {
+  discoverMovie({ sort_by, with_genres, page = 1 }) {
     const params: { [key: string]: string } = {};
     if (with_genres) params.with_genres = with_genres;
     if (sort_by) params.sort_by = sort_by;
+    if (page) params.page = `${page}`;
     return this.request('/discover/movie', params);
   },
   getNowPlayingMovies() {
