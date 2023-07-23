@@ -51,6 +51,7 @@ type Result<R> = {
 type DiscoverMovieResult = Result<Movie[]>;
 type NowPlayingMovieResult = Result<Movie[]> & { dates: { maximum: string; minimum: string } };
 type SearchMovieResult = Result<Movie[]>;
+type RecomMovieResult = Result<Movie[]>;
 type MovieReviewResult = Result<MovieReview[]>;
 
 export type SortBy =
@@ -65,6 +66,7 @@ type Apis = {
   getMovieById: (id: string) => Promise<Movie>;
   getNowPlayingMovies: () => Promise<NowPlayingMovieResult>;
   searchMovies: (keyword: string) => Promise<SearchMovieResult>;
+  getRecommendedMovies: (id: string) => Promise<RecomMovieResult>;
   getReview: (id: string) => Promise<MovieReviewResult>;
 };
 
@@ -85,9 +87,12 @@ const apis = {
   getMovieById(id) {
     return this.request('/movie/' + id);
   },
-  getReview(id){
+  getReview(id) {
     return this.request(`/movie/${id}/reviews`);
-  }
+  },
+  getRecommendedMovies(id) {
+    return this.request(`/movie/${id}/recommendations`);
+  },
 } as { request: (typeof reqObj)['request'] } & Apis;
 
 export default apis as Apis;

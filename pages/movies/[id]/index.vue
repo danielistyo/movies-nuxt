@@ -69,6 +69,12 @@
     <div class="detail-page__recommendation">
       <div class="detail-page__recommendation-container">
         <h4 class="detail-page__recommendation-title">RECOMMENDATION MOVIES</h4>
+        <div class="detail-page__recommendation-movie">
+          <nuxt-link v-for="mv in recommendations.slice(0, 5)" :key="mv.id" class="detail-page__recommendation-movie-item"
+            :to="{ path: `/movies/${mv.id}`, }">
+            <movie-card :movie="mv" />
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -104,9 +110,16 @@ export default defineComponent({
       const res = await api.getReview(route.params.id as string)
       reviews.value.push(...res.results)
     }
+
+    const recommendations = ref<Movie[]>([])
+    const fetchRecommendations = async () => {
+      const res = await api.getRecommendedMovies(route.params.id as string)
+      recommendations.value.push(...res.results)
+    }
     onMounted(() => {
       fetchMovie();
       fetchReview();
+      fetchRecommendations()
     })
 
     const production = computed(() => {
@@ -124,7 +137,7 @@ export default defineComponent({
       (root as HTMLElement).style.setProperty('--bgColor', `#1f232b`)
     })
 
-    return { movie, movieGenres, movieLang, production, reviews }
+    return { movie, movieGenres, movieLang, production, reviews, recommendations }
   },
 })
 </script>

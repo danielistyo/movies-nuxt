@@ -107,6 +107,13 @@
       max-width: 820px;
       margin: auto;
     }
+    &-movie {
+      display: flex;
+      &-item {
+        margin: 0 10px;
+        text-decoration: none;
+      }
+    }
   }
 }
 
