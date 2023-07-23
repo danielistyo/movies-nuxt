@@ -17,6 +17,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@types/lodash": "^4.14.195",
+    "dayjs": "^1.11.9",
     "lodash": "^4.17.21",
     "pinia": "^2.1.4",
     "sass": "^1.64.0"

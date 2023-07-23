@@ -4,6 +4,7 @@ declare module '#app' {
     $getYear(date: string): string;
     $getGenre(id: number): string;
     $getBudget(budget: number): string;
+    $getDate(date: string): string;
   }
 }
 
@@ -13,6 +14,7 @@ declare module 'vue' {
     $getYear(date: string): string;
     $getGenre(id: number): string;
     $getBudget(budget: number): string;
+    $getDate(date: string): string;
   }
 }
 

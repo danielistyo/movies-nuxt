@@ -26,6 +26,21 @@ export type Movie = {
   }[];
 };
 
+export type MovieReview = {
+  author: string;
+  author_details: {
+    name: string;
+    username: string;
+    avatar_path: string;
+    rating: number;
+  };
+  content: string;
+  created_at: string;
+  id: string;
+  updated_at: string;
+  url: string;
+};
+
 type Result<R> = {
   page: number;
   results: R;
@@ -36,6 +51,7 @@ type Result<R> = {
 type DiscoverMovieResult = Result<Movie[]>;
 type NowPlayingMovieResult = Result<Movie[]> & { dates: { maximum: string; minimum: string } };
 type SearchMovieResult = Result<Movie[]>;
+type MovieReviewResult = Result<MovieReview[]>;
 
 export type SortBy =
   | 'popularity.asc'
@@ -49,6 +65,7 @@ type Apis = {
   getMovieById: (id: string) => Promise<Movie>;
   getNowPlayingMovies: () => Promise<NowPlayingMovieResult>;
   searchMovies: (keyword: string) => Promise<SearchMovieResult>;
+  getReview: (id: string) => Promise<MovieReviewResult>;
 };
 
 const apis = {
@@ -68,6 +85,9 @@ const apis = {
   getMovieById(id) {
     return this.request('/movie/' + id);
   },
+  getReview(id){
+    return this.request(`/movie/${id}/reviews`);
+  }
 } as { request: (typeof reqObj)['request'] } & Apis;
 
 export default apis as Apis;

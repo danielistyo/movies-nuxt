@@ -1,4 +1,5 @@
 import { useGenresStore } from '@/store/genres';
+import dayjs from 'dayjs';
 
 export default defineNuxtPlugin((nuxtApp) => {
   console.log(nuxtApp.store);
@@ -21,6 +22,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
         return formatter.format(budget);
       },
+      getDate(date:string){
+        return dayjs(date).format('MMMM DD, YYYY')
+      }
     },
   };
 });
