@@ -7,6 +7,9 @@
     width: 100vw;
     object-fit: cover;
     opacity: 0.3;
+    @media only screen and (max-width: 800px) {
+      height: 360px;
+    }
   }
 
   &__header-container {
@@ -22,6 +25,9 @@
     width: 200px;
     height: 300px;
     object-fit: cover;
+    @media only screen and (max-width: 800px) {
+      display: none;
+    }
   }
 
   &__details {
@@ -29,6 +35,11 @@
     width: 100%;
     &-main {
       height: 104px;
+    }
+    @media only screen and (max-width: 800px) {
+      padding: 0 20px;
+      box-sizing: border-box;
+      margin-left: 0;
     }
   }
 
@@ -54,10 +65,27 @@
   &__title {
     margin: 10px 0;
     font-size: 28px;
+    @media only screen and (max-width: 800px) {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 
   &__genre {
     font-size: 14px;
+  }
+
+  &__budget{
+    @media only screen and (max-width: 550px) {
+      display: none;
+    }
+  }
+
+  &__language{
+    @media only screen and (max-width: 425px) {
+      display: none;
+    }
   }
 
   &__rating {
@@ -92,8 +120,18 @@
     display: flex;
     justify-content: space-between;
 
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
     &-title {
       color: #ff0000;
+      @media only screen and (max-width: 800px) {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -101,6 +139,9 @@
     background-color: #1e232b;
     &-title {
       color: #fff;
+      @media only screen and (max-width: 800px) {
+        margin-left: 20px;
+      }
     }
     &-container {
       padding-top: 30px;
@@ -109,6 +150,7 @@
     }
     &-movie {
       display: flex;
+      flex-wrap: wrap;
       &-item {
         margin: 0 10px;
         text-decoration: none;
@@ -127,6 +169,13 @@
   }
   &:last-child {
     margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    &:first-child,
+    &:last-child {
+      margin: 10px 0;
+    }
   }
   border-radius: 20px;
   &__author {
