@@ -1,0 +1,15 @@
+.page-footer {
+  background-color: #15191e;
+
+  &__container {
+    height: 100px;
+    max-width: 820px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #929292;
+    font-size: 12px;
+  }
+}
