@@ -14,6 +14,13 @@ export default defineNuxtPlugin((nuxtApp) => {
         const store = useGenresStore();
         return store.genres.find((g) => g.id === id)?.name;
       },
+      getBudget(budget: number) {
+        const formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+        return formatter.format(budget);
+      },
     },
   };
 });

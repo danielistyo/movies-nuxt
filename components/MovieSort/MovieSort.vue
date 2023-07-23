@@ -31,7 +31,7 @@ const onClick = () => {
 }
 const sortEl = ref<HTMLDivElement | null>(null)
 
-const outsideClickLis = (e) => {
+const outsideClickLis = (e: Event) => {
   if (!sortEl.value?.contains(e.target as HTMLElement)) open.value = false
 }
 onMounted(() => {
@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('click', outsideClickLis)
 })
 
-const onSelected = (sort: string) => {
+const onSelected = (sort: keyof typeof data) => {
   selected.value = data[sort]
   emit('change', sort)
   open.value = false

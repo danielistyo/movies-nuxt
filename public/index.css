@@ -60,9 +60,14 @@
     U+E0FF, U+EFFD, U+F000;
 }
 
+:root{
+  --bgColor: #1f232b
+}
+
 html {
   font-family: 'Lato Regular';
-  background-color: #1f232b;
+  background: linear-gradient(180deg,#1f232b 0%,#1f232b 440px,var(--bgColor) 440px,var(--bgColor) 100%);
+  min-height: 100vh;
 }
 
 body {

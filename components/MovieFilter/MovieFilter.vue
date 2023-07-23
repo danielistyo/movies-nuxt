@@ -24,7 +24,7 @@ const emit = defineEmits<{
   sort: [payload: string],
   genre: [payload: number[]]
 }>()
-const onSortChange = (opt) => {
+const onSortChange = (opt: string) => {
   emit('sort', opt)
 }
 
@@ -34,8 +34,8 @@ const store = useGenresStore()
 const { genres } = storeToRefs(store)
 
 const checkedGenres = ref<number[]>([])
-const onGenreChange = (e, id: number) => {
-  if (e.target.checked) checkedGenres.value.push(id)
+const onGenreChange = (e: Event, id: number) => {
+  if ((e.target as HTMLInputElement).checked) checkedGenres.value.push(id)
   else { checkedGenres.value.splice(0, checkedGenres.value.length, ...checkedGenres.value.filter((g) => g !== id)) }
   emit('genre', checkedGenres.value)
 }

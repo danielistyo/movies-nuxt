@@ -3,6 +3,7 @@ declare module '#app' {
     $getImages(name: string, size: '500' | 'original' = '500'): string;
     $getYear(date: string): string;
     $getGenre(id: number): string;
+    $getBudget(budget: number): string;
   }
 }
 
@@ -11,6 +12,7 @@ declare module 'vue' {
     $getImages(name: string, size: '500' | 'original' = '500'): string;
     $getYear(date: string): string;
     $getGenre(id: number): string;
+    $getBudget(budget: number): string;
   }
 }
 

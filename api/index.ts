@@ -1,5 +1,6 @@
 import movies from './endpoints/movies';
 import genres from './endpoints/genres';
+import languages from './endpoints/languages';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -24,7 +25,7 @@ export const reqObj = {
 };
 
 type ApisKeys = keyof typeof merger;
-const merger = { ...movies, ...genres };
+const merger = { ...movies, ...genres, ...languages };
 const combined: { [key: string]: any } = merger;
 
 Object.keys(combined).forEach((key) => {

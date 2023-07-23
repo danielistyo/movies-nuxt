@@ -30,7 +30,7 @@ export default defineComponent({
     const page = ref(1)
     const sort = ref<SortBy>('popularity.desc')
     const selectedGenres = ref<number[]>([])
-    
+
     const fetchMovies = async (clearMovies: boolean) => {
       if (clearMovies) movies.value.splice(0, movies.value.length)
       const combinedGenres: string = [route.query.genre_id as string, ...selectedGenres.value].join('|')
@@ -48,8 +48,8 @@ export default defineComponent({
       fetchMovies(false)
     }
 
-    const onSort = (opt: SortBy) => {
-      sort.value = opt
+    const onSort = (opt: string) => {
+      sort.value = (opt as SortBy)
       fetchMovies(true)
     }
 

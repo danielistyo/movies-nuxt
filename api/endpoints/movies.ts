@@ -15,6 +15,15 @@ export type Movie = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  genres: { id: number; name: string }[];
+  status?: number;
+  budget?: number;
+  production_companies?: {
+    id: number;
+    logo_path: string;
+    name: string;
+    origin_country: string;
+  }[];
 };
 
 type Result<R> = {
@@ -37,6 +46,7 @@ export type SortBy =
   | 'vote_average.desc';
 type Apis = {
   discoverMovie: (params: { sort_by?: SortBy; with_genres?: string; page?: number }) => Promise<DiscoverMovieResult>;
+  getMovieById: (id: string) => Promise<Movie>;
   getNowPlayingMovies: () => Promise<NowPlayingMovieResult>;
   searchMovies: (keyword: string) => Promise<SearchMovieResult>;
 };
@@ -54,6 +64,9 @@ const apis = {
   },
   searchMovies(keyword) {
     return this.request('/search/movie', { query: keyword });
+  },
+  getMovieById(id) {
+    return this.request('/movie/' + id);
   },
 } as { request: (typeof reqObj)['request'] } & Apis;
 
