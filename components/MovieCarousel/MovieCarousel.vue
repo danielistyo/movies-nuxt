@@ -40,9 +40,10 @@ const onNavClick = (id: number) => {
 
   listEl.value.style.transform = `translateX(${x}px)`
 }
-
-nextTick(() => {
-  if (listEl.value) { listEl.value.style.transform = `translateX(${(window.innerWidth / 2) - (ITEM_WIDTH * 1.5)}px)`; }
+onMounted(() => {
+  nextTick(() => {
+    if (listEl.value) { listEl.value.style.transform = `translateX(${(window.innerWidth / 2) - (ITEM_WIDTH * 1.5)}px)`; }
+  })
 })
 </script>
 

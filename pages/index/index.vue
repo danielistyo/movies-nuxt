@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import MovieCarousel from '@/components/MovieCarousel'
-import MovieCard from '@/components/MovieCard'
+import MovieCarousel from '@/components/MovieCarousel/MovieCarousel.vue'
+import MovieCard from '@/components/MovieCard/MovieCard.vue'
 import { defineComponent, onMounted, ref } from 'vue'
 import api from '@/api'
 import { Movie, SortBy } from 'api/endpoints/movies'
@@ -44,7 +44,7 @@ export default defineComponent({
     const nowPlayingMovies = reactive<Movie[]>([])
     const fetchNowPlayingMovies = async () => {
       const res = await api.getNowPlayingMovies()
-      nowPlayingMovies.splice(0, nowPlayingMovies.length, ...res.results.slice(0, 5))
+      nowPlayingMovies.splice(0, nowPlayingMovies.length, ...res.results.slice(0, 8))
     }
 
     onMounted(() => {
